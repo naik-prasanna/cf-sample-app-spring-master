@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="en" ng-app="SpringSendgrid">
+
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/app.css"/>
+
+<title>Spring SendGrid Sample</title>
+
+</head>
+
+<body>
+<div class="container" ng-controller="EmailController">
+    <div class="row-fluid">
+        <div id="header" class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Hello</i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div id="alert" ng-show="status">
+            <div ng-class="{'alert': true, 'alert-success': !status.error, 'alert-error': status.error}">
+                <button type="button" class="close" ng-click="status=null"><i class="icon-remove-circle"></i></button>
+                <p>{{status.message}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <form id="emailMessage" class="form-horizontal" novalidate>
+            <fieldset>
+                <legend>E-mail</legend>
+
+                <div class="control-group">
+                    <label for="to" class="control-label">To:</label>
+                    <div class="controls">
+                        <input id="to" class="input-xxlarge" type="text" ng-model="message.to[0]"
+                                placeholder="John Doe <john.doe@acme.com>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="cc" class="control-label">CC:</label>
+                    <div class="controls">
+                        <input id="cc" class="input-xxlarge" type="text" ng-model="message.cc[0]"
+                               placeholder="John Doe <john.doe@acme.com>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="bcc" class="control-label">BCC:</label>
+                    <div class="controls">
+                        <input id="bcc" class="input-xxlarge" type="text" ng-model="message.bcc[0]"
+                               placeholder="John Doe <john.doe@acme.com>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="from" class="control-label">From:</label>
+                    <div class="controls">
+                        <input id="from" class="input-xxlarge" type="text" required ng-model="message.from"
+                               placeholder="John Doe <john.doe@acme.com>"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="subject" class="control-label">Subject:</label>
+                    <div class="controls">
+                        <input id="subject" class="input-xxlarge" type="text" required ng-model="message.subject"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="text" class="control-label">Message:</label>
+                    <div class="controls">
+                        <textarea id="text" rows="8" class="input-xxlarge" required ng-model="message.text"></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <button id="submit" ng-click="send(message)" class="btn btn-primary btn-large">
+                        <i class="icon-envelope icon-white"></i> Send
+                    </button>
+                    <button id="reset" ng-click="reset()" class="btn btn-warning btn-large">
+                        <i class="icon-remove icon-white"></i> Reset
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="assets/js/angular.min.js"></script>
+<script type="text/javascript" src="assets/js/angular-resource.min.js"></script>
+
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/email.js"></script>
+
+</html>

@@ -1,0 +1,12 @@
+build
+.gradle
+settings.gradle
+.idea
+*.iml
+out
+.DS_Store
+repo
+gradle.properties
+target
+*.class
+examples/Example.javasendgrid.env

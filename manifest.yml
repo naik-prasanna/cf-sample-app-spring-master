@@ -1,0 +1,8 @@
+---
+applications:
+- name: pnaik-eamil
+  memory: 512M
+  instances: 1
+  path: build/libs/cf-sample-app-spring-master.war
+  services:
+    - cf-spring-email
